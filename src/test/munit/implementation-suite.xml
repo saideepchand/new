@@ -27,6 +27,25 @@ assert_expression_payload::main({payload: payload, attributes: attributes, vars:
 			</munit-tools:assert>
 		</munit:validation>
 	</munit:test>
+	<munit:test name="post-test" doc:id="9d4d566e-6ff4-4391-b993-eecd7b3a2f19" >
+		<munit:behavior >
+			<munit:set-event doc:name="Set Input" doc:id="89f1377c-795e-4cbd-b0f7-1b821b3e27d5" >
+				<munit:payload value="#[readUrl('classpath://posttest\set-event_payload.dwl')]" encoding="UTF-8" />
+				<munit:attributes value="#[readUrl('classpath://posttest\set-event_attributes.dwl')]" />
+			</munit:set-event>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to post" doc:id="286a3fe4-0b1e-43b4-b45c-b4496a401ee7" name="post"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert doc:name="Assert payload" doc:id="e89f1dd9-7149-44dd-8563-9bf46163d6c0" message="The payload does not match">
+				<munit-tools:that ><![CDATA[#[%dw 2.0
+import posttest::assert_expression_payload
+---
+assert_expression_payload::main({payload: payload, attributes: attributes, vars: vars})]]]></munit-tools:that>
+			</munit-tools:assert>
+		</munit:validation>
+	</munit:test>
 
 
 </mule>
