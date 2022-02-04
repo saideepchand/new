@@ -1,0 +1,42 @@
+#%RAML 1.0
+title: EMP
+
+version: v1
+types:
+  employee: !includeEMP/datatype.raml
+
+/getdata:
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              message: RECORDS FETCHED
+              
+/postdata:
+  post:
+    body:
+      application/json:
+        type: employee
+        examples:
+          input: !include/example.raml
+    responses:
+      201:
+        body:
+          application/json:
+            example:
+              message: POSTED DATA BUT NOT ACTUALLY
+        
+
+
+        
+
+            
+            
+        
+  
+
+ 
+
+  

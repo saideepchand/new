@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<db:config name="Database_Config" doc:name="Database Config" doc:id="1a43dfe9-953f-462e-bc24-9ebc410017d8" >
+		<db:my-sql-connection host="remotemysql.com" port="3306" user="ROJFuLCpj8" password="n9K6yuynDm" database="ROJFuLCpj8" />
+	</db:config>
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="7196ff9a-18d9-45ea-b270-ee9724998742" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+</mule>
