@@ -31,6 +31,6 @@ payload]]></ee:set-payload>
 	salary: 60000
 }]]]></db:input-parameters>
 		</db:insert>
-		<set-payload value="done" doc:name="Set Payload" doc:id="d1acaf12-9aaa-42ad-adf1-220e3570c5ba" />
+		<set-payload value="done post method" doc:name="Set Payload" doc:id="d1acaf12-9aaa-42ad-adf1-220e3570c5ba" />
 	</flow>
 </mule>
