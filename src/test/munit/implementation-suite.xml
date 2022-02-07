@@ -27,22 +27,22 @@ assert_expression_payload2::main({payload: payload, attributes: attributes, vars
 			</munit-tools:assert>
 		</munit:validation>
 	</munit:test>
-	<munit:test name="post-test" doc:id="c2836d32-eaca-4c65-8efe-d73f3f195003" ignore="true">
+	<munit:test name="post-test" doc:id="347d73a0-3aa0-4285-9458-6ffc7a762bb4" >
 		<munit:behavior >
-			<munit:set-event doc:name="Set Input" doc:id="1f6dcee4-6973-466e-8d24-0a333b24573f" >
-				<munit:payload value="#[readUrl('classpath://posttest\set-event_payload1.dwl')]" encoding="UTF-8" />
-				<munit:attributes value="#[readUrl('classpath://posttest\set-event_attributes1.dwl')]" />
+			<munit:set-event doc:name="Set Input" doc:id="088c6b00-f2f2-4d21-90e7-4a3759d14ba6" >
+				<munit:payload value="#[readUrl('classpath://posttest\set-event_payload2.dwl')]" encoding="UTF-8" />
+				<munit:attributes value="#[readUrl('classpath://posttest\set-event_attributes2.dwl')]" />
 			</munit:set-event>
 		</munit:behavior>
 		<munit:execution >
-			<flow-ref doc:name="Flow-ref to post" doc:id="0b3152bc-c4e7-40db-89de-c4371ceb9793" name="post"/>
+			<flow-ref doc:name="Flow-ref to post" doc:id="89379640-3a4b-42d6-9742-a79cf67f4bae" name="post"/>
 		</munit:execution>
 		<munit:validation >
-			<munit-tools:assert doc:name="Assert payload" doc:id="16616d77-9717-4d8c-9bd6-4dfb73ee9e66" message="The payload does not match">
+			<munit-tools:assert doc:name="Assert payload" doc:id="adef858c-8594-472a-a99b-58619f5fe584" message="The payload does not match">
 				<munit-tools:that ><![CDATA[#[%dw 2.0
-import posttest::assert_expression_payload1
+import posttest::assert_expression_payload2
 ---
-assert_expression_payload1::main({payload: payload, attributes: attributes, vars: vars})]]]></munit-tools:that>
+assert_expression_payload2::main({payload: payload, attributes: attributes, vars: vars})]]]></munit-tools:that>
 			</munit-tools:assert>
 		</munit:validation>
 	</munit:test>

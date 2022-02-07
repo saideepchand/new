@@ -21,16 +21,8 @@ payload]]></ee:set-payload>
 		</ee:transform>
 		<logger level="INFO" doc:name="Logger" doc:id="b7e6d1e1-e51a-4d37-9c5a-40e5ae5bea5c" />
 	</flow>
-	<flow name="post" doc:id="e65a0f2a-e4aa-4d77-97eb-ea7d813dfbbc" >
-		<http:listener doc:name="Listener" doc:id="7ee9b8ce-59bc-40c8-9876-788d3f6d8f6d" config-ref="HTTP_Listener_config" path="/post"/>
-		<db:insert doc:name="Insert" doc:id="b471d406-5096-496f-bf67-f90c3719e977" config-ref="Database_Config">
-			<db:sql ><![CDATA[insert into EMP values(:id,:name,:salary)]]></db:sql>
-			<db:input-parameters ><![CDATA[#[{
-	id: 10,
-	name: 'yashu',
-	salary: 66000
-}]]]></db:input-parameters>
-		</db:insert>
-		<set-payload value="done post method successfully" doc:name="Set Payload" doc:id="d1acaf12-9aaa-42ad-adf1-220e3570c5ba" />
+	<flow name="post" doc:id="e65a0f2a-e4aa-4d77-97eb-ea7d813dfbbc">
+		<http:listener doc:name="Listener" doc:id="7ee9b8ce-59bc-40c8-9876-788d3f6d8f6d" config-ref="HTTP_Listener_config" path="/post" />
+		<set-payload value="done post method successfully but no insertion really" doc:name="Set Payload" doc:id="d1acaf12-9aaa-42ad-adf1-220e3570c5ba" />
 	</flow>
 </mule>
