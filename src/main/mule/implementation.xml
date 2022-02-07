@@ -26,9 +26,9 @@ payload]]></ee:set-payload>
 		<db:insert doc:name="Insert" doc:id="b471d406-5096-496f-bf67-f90c3719e977" config-ref="Database_Config">
 			<db:sql ><![CDATA[insert into EMP values(:id,:name,:salary)]]></db:sql>
 			<db:input-parameters ><![CDATA[#[{
-	id: 9,
-	name: 'sri',
-	salary: 38000
+	id: 10,
+	name: 'yashu',
+	salary: 66000
 }]]]></db:input-parameters>
 		</db:insert>
 		<set-payload value="done post method" doc:name="Set Payload" doc:id="d1acaf12-9aaa-42ad-adf1-220e3570c5ba" />
