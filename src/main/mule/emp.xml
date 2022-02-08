@@ -121,9 +121,9 @@ output application/json
         </error-handler>
     </flow>
     <flow name="get:\getdata:emp-config">
-		<flow-ref doc:name="Flow Reference" doc:id="3d1cbd97-4e7a-47bc-a668-cc39a7e33953" name="get"/>
+		<flow-ref doc:name="Flow Reference" doc:id="c836ef29-bc05-411b-8f8f-3a3128dd580d" name="get"/>
     </flow>
     <flow name="post:\postdata:application\json:emp-config">
-		<flow-ref doc:name="Flow Reference" doc:id="d0d7bc75-a92b-4e0f-92b2-d14761662d9a" name="post"/>
+		<flow-ref doc:name="Flow Reference" doc:id="b6abfcb1-61bc-43b9-bc08-aa9e308c1b9b" name="post"/>
     </flow>
 </mule>

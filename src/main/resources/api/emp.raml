@@ -18,9 +18,9 @@ types:
   post:
     body:
       application/json:
-        type: employee
         examples:
-          input: !include/example.raml
+          example: !include EMP/example.raml
+    
     responses:
       201:
         body:

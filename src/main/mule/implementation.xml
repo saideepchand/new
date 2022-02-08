@@ -7,7 +7,6 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
 http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
 	<flow name="get" doc:id="4bcf85f9-763c-41e6-8396-f08e068e3c95" >
-		<http:listener doc:name="Listener" doc:id="1cdf4581-cbcd-48c2-9885-a1bb9b110b94" config-ref="HTTP_Listener_config" path="/get"/>
 		<db:select doc:name="Select" doc:id="ed383d8d-c357-400b-a4aa-46e38f764725" config-ref="Database_Config">
 			<db:sql ><![CDATA[select * from EMP]]></db:sql>
 		</db:select>
@@ -22,7 +21,23 @@ payload]]></ee:set-payload>
 		<logger level="INFO" doc:name="Logger" doc:id="b7e6d1e1-e51a-4d37-9c5a-40e5ae5bea5c" />
 	</flow>
 	<flow name="post" doc:id="e65a0f2a-e4aa-4d77-97eb-ea7d813dfbbc">
-		<http:listener doc:name="Listener" doc:id="7ee9b8ce-59bc-40c8-9876-788d3f6d8f6d" config-ref="HTTP_Listener_config" path="/post" />
+		<db:insert doc:name="Insert" doc:id="469a953e-7810-4aae-abac-df0ebcc71b87" config-ref="Database_Config">
+			<db:sql ><![CDATA[insert into EMP values(:id,:name,:salary)]]></db:sql>
+			<db:input-parameters ><![CDATA[#[{
+	'id': payload.id,
+	'name': payload.name,
+	'salary': payload.salary
+}]]]></db:input-parameters>
+		</db:insert>
 		<set-payload value="done post method successfully but no insertion really" doc:name="Set Payload" doc:id="d1acaf12-9aaa-42ad-adf1-220e3570c5ba" />
+	</flow>
+	<flow name="delete" doc:id="e2dc7bab-5beb-427b-bb19-49890888fe11" >
+		<http:listener doc:name="Listener" doc:id="400f5856-3323-4e53-98da-664398a5f9c5" config-ref="HTTP_Listener_config" path="/delete"/>
+		<db:delete doc:name="Delete" doc:id="58790dba-300a-41fd-8e89-6ed440059db8" config-ref="Database_Config">
+			<db:sql ><![CDATA[delete from EMP where id=:id]]></db:sql>
+			<db:input-parameters ><![CDATA[#[{
+	"id": payload.id
+}]]]></db:input-parameters>
+		</db:delete>
 	</flow>
 </mule>
