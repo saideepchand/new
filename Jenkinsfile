@@ -20,7 +20,7 @@ pipeline {
         stage('deploy') {
             steps {
                 echo 'Hello deploy'
-                //bat 'mvn package'
+                bat 'mvn deploy -DmuleDeploy'
             }
         }
 
